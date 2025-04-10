@@ -1,40 +1,69 @@
-# Course 在线课程管理系统
+# 🎓 课程管理系统（Course Management System）
 
-本项目为一套在线课程管理系统，采用前后端分离架构，适合校园类信息系统建设和学习型项目开发实践。系统以 Vue3 + Element Plus 为前端框架，后端使用 Spring Boot、MyBatis 与 MySQL 进行开发。
+## 📘 项目简介
 
-## 项目技术栈
+本项目为一套基于 **Spring Boot + Vue 3** 的前后端分离课程管理系统，包含用户注册、登录、权限验证与基础页面布局，适合用于教学后台、课程安排管理等系统场景。
 
-### 前端
+---
 
-- Vue 3
-- Element Plus
-- Axios
+## 🧰 技术栈
 
-### 后端
+### 🔧 后端（Java + Spring Boot）
 
-- Spring Boot 3.x
+- Spring Boot 3.2.x
+- Spring Security
 - MyBatis
-- MySQL
-- JWT（计划集成）
+- MySQL 8+
+- JWT（JSON Web Token）
 
-## 当前进度
+### 💻 前端（Vue 3 + Element Plus）
 
-- [x] 后端项目结构搭建
-- [x] 本地 MySQL 数据库连接配置
-- [x] Git 仓库初始化并上传至 GitHub
-- [ ] 用户注册与登录模块开发
-- [ ] JWT 鉴权与接口保护
-- [ ] 教师讲座上传与管理功能
-- [ ] 投票模块与评论模块设计
-- [ ] 管理员后台功能设计
+- Vue 3（基于 Vite 构建）
+- Element Plus（UI 组件库）
+- Vue Router（前端路由管理）
+- Axios（HTTP 请求）
 
-## 快速启动（后端）
+---
 
-1. 确保已创建名为 `course_db` 的本地 MySQL 数据库
-2. 修改 `application.properties` 中的数据库连接信息
-3. 使用 IDEA 或命令行运行 `CourseApplication.java`
-4. 默认端口：8080
+## ✅ 已完成功能
 
-## 说明
+- [x] 用户注册（数据库持久化）
+- [x] 用户登录（JWT 认证返回 token）
+- [x] Spring Security 登录鉴权保护接口
+- [x] 前后端分离架构搭建
+- [x] 顶部导航栏 + 侧边栏页面布局（美化）
+- [x] 登录成功后跳转首页 + token 存储校验
 
-本项目为学习和实验用途开发，欢迎基于本项目继续拓展模块，提升系统完整性。
+### 🚀 项目结构
+
+```# 项目结构
+course/
+├── my-course-frontend/      # 前端 Vue 3 项目目录
+│   ├── src/
+│   │   ├── views/           # 登录、首页等页面
+│   │   ├── components/      # 公共组件（如 Layout）
+│   │   └── router/          # 路由配置
+│   └── package.json
+│
+├── src/                     # 后端 Java 源码
+│   ├── controller/          # 控制器接口层
+│   ├── entity/              # 实体类
+│   ├── mapper/              # MyBatis 接口
+│   ├── service/             # 业务逻辑实现
+│   └── util/                # JWT 工具类等
+│
+├── resources/
+│   └── application.properties
+└── pom.xml
+
+📌 TODO（下一阶段目标）
+ 课程信息管理（增删改查）
+
+ 表格数据展示（分页 + 搜索）
+
+ 用户信息管理模块
+
+ 登录角色权限动态菜单
+
+ 前端 token 自动刷新 + 路由拦截
+
