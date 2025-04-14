@@ -17,4 +17,11 @@ public class CourseController {
     public List<Course> listCourses() {
         return courseService.listCourses();
     }
+
+    @PostMapping
+    public String addCourse(@RequestBody Course course) {
+        courseService.addCourse(course);
+        return "添加成功";
+    }
+
 }

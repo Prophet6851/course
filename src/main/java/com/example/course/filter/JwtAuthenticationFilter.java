@@ -20,26 +20,32 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                                     FilterChain filterChain)
             throws ServletException, IOException {
 
+        System.out.println("🛡 JwtAuthenticationFilter 执行了");
+
         String authHeader = request.getHeader("Authorization");
+        System.out.println("获取到的 Authorization 头: " + authHeader);
 
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             String token = authHeader.substring(7);
             String username = JwtUtil.parseToken(token);
+            System.out.println("解析得到的用户名: " + username);
 
             if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-                System.out.println("✅ 设置认证用户：" + username);
+                System.out.println("设置认证用户：" + username);
 
-                // 👇 这一行非常关键，必须执行这句，Spring 才认为你是“登录状态”
                 UsernamePasswordAuthenticationToken authentication =
                         new UsernamePasswordAuthenticationToken(
                                 username,
                                 null,
-                                Collections.emptyList() // 无权限处理
+                                Collections.emptyList() // 暂不使用角色权限
                         );
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
+        } else {
+            System.out.println("未携带有效的 Authorization 头");
         }
 
         filterChain.doFilter(request, response);
     }
+
 }

@@ -7,4 +7,9 @@
     <select id="findAll" resultType="com.example.course.entity.Course">
         SELECT * FROM course
     </select>
+    <insert id="insertCourse" parameterType="com.example.course.entity.Course">
+        INSERT INTO course (name, teacher, credit, description)
+        VALUES (#{name}, #{teacher}, #{credit}, #{description})
+    </insert>
+
 </mapper>

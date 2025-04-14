@@ -15,8 +15,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
+                .cors(cors -> {}) //开启跨域支持，使用默认配置
                 .csrf(csrf -> csrf.disable())
-                .cors(cors -> {}) // ✅ 开启跨域支持，使用默认配置
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/users/login", "/api/users/register").permitAll()
                         .anyRequest().authenticated()

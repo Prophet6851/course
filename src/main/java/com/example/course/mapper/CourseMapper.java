@@ -7,4 +7,5 @@ import java.util.List;
 @Mapper
 public interface CourseMapper {
     List<Course> findAll();
+    void insertCourse(Course course);
 }
