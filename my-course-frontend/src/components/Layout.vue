@@ -10,20 +10,24 @@
       <!-- 左侧菜单栏 -->
       <el-aside width="200px" class="layout-aside">
         <el-menu
-          default-active="1"
+          router
+          :default-active="$route.path"
           class="el-menu-vertical-demo"
           background-color="#ffffff"
           text-color="#333"
           active-text-color="#409eff"
         >
-          <el-menu-item index="1">
-            <span>课程管理</span>
+          <el-menu-item index="/home">
+            <span>🏠 首页</span>
           </el-menu-item>
-          <el-menu-item index="2">
-            <span>学生管理</span>
+          <el-menu-item index="/courses">
+            <span>📚 课程管理</span>
           </el-menu-item>
-          <el-menu-item index="3">
-            <span>成绩统计</span>
+          <el-menu-item index="/students">
+            <span>👨‍🎓 学生管理</span>
+          </el-menu-item>
+          <el-menu-item index="/scores">
+            <span>📈 成绩统计</span>
           </el-menu-item>
         </el-menu>
       </el-aside>

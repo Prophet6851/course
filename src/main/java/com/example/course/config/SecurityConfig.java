@@ -15,10 +15,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-                .csrf(csrf -> csrf.disable()) // 禁用 CSRF（前后端分离不需要）
+                .csrf(csrf -> csrf.disable())
+                .cors(cors -> {}) // ✅ 开启跨域支持，使用默认配置
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/users/login", "/api/users/register").permitAll() // 放行
-                        .anyRequest().authenticated() // 其余接口需要认证
+                        .requestMatchers("/api/users/login", "/api/users/register").permitAll()
+                        .anyRequest().authenticated()
                 )
                 .addFilterBefore(new JwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling(ex -> ex
@@ -30,6 +31,7 @@ public class SecurityConfig {
                 )
                 .build();
     }
+
 
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
