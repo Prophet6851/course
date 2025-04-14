@@ -59,6 +59,7 @@ npm run dev
 ✅ /api/users/login、/api/users/register 不拦截
 
 ❌ /api/courses 等接口需附带 Bearer token，否则 401
+---
 
 📷 示例截图
 登录界面	课程页面
