@@ -54,8 +54,9 @@ npm install
 npm run dev
 访问：http://localhost:5173
 
+```
 
-🔒 默认拦截说明
+### 🔒 默认拦截说明
 ✅ /api/users/login、/api/users/register 不拦截
 
 ❌ /api/courses 等接口需附带 Bearer token，否则 401
